@@ -1,0 +1,10 @@
+<p>
+Name: <input type=text #friendName />
+</p>
+<button (click)="addFriend(friendName.value)">Add New Friend</button>
+<h1>Friends List</h1>
+<ul>
+  <li *ngFor="let name of friendsList">
+    {{name}}
+  </li>
+</ul>

@@ -1,0 +1,52 @@
+<table>
+  <tr>
+    <td>Id<sup>*</sup></td>
+    <td><input type=number #id /></td>
+  </tr>
+  <tr>
+    <td>Name<sup>*</sup></td>
+    <td><input type=text #name /></td>
+  </tr>
+  <tr>
+    <td>Age<sup>*</sup></td>
+    <td><input type=number #age /></td>
+  </tr>
+  <tr>
+    <td>Salary<sup>*</sup></td>
+    <td><input type=number #salary /></td>
+  </tr>
+  <tr>
+    <td>Dept Id<sup>*</sup></td>
+    <td><input type=number #deptId /></td>
+  </tr>
+  <tr>
+    <td colspan="2"><button (click)="addNewEmployee(id.value,name.value,age.value,salary.value,deptId.value)">Add New Employee</button></td>
+  </tr>
+</table>
+
+
+<p>
+  Employee List
+</p>
+<hr/>
+<!-- {{employee.id}}
+{{employee.name}}
+{{employee.salary}}
+{{employee.age}}
+{{employee.deptId}} -->
+<table>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Salary</th>
+      <th>Dept #</th>
+    </tr>    
+    <tr *ngFor="let emp of empList">
+      <td>{{emp.id}}</td>
+      <td>{{emp.name}}</td>
+      <td>{{emp.age}}</td>
+      <td>{{emp.salary}}</td>
+      <td>{{emp.deptId}}</td>
+    </tr>
+</table>
