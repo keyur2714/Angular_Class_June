@@ -1,0 +1,19 @@
+<button class="btn btn-info" (click)="sayHello()">Say Hello</button>
+<table class="table table-stripped">
+  <tr>
+    <th>Book #</th>
+    <th>Book Name</th>
+    <th>Author</th>
+    <th>Price</th>
+  </tr>
+  <tr *ngFor="let book of bookList;let i=index" (click)="setSelectedBook(book)">
+    <td>{{book.bookId}}</td>
+    <td>{{book.bookName}}</td>
+    <td>{{book.author}}</td>
+    <td>{{book.price}}</td>    
+  </tr>
+</table>
+{{selectedBook.bookId}}
+{{selectedBook.bookName}}
+{{selectedBook.author}}
+{{selectedBook.price}}
