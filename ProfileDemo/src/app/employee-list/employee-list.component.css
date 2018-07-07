@@ -1,7 +1,7 @@
-table,tr,td,th{
-    color: palevioletred;    
-    border: 1px solid blueviolet;        
-}
 sup{
     color: red;
+}
+.selected{
+    color: white;
+    background: brown;
 }

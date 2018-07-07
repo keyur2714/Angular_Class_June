@@ -34,19 +34,23 @@
 {{employee.salary}}
 {{employee.age}}
 {{employee.deptId}} -->
-<table>
+<table class="table table-stripped">
     <tr>
       <th>Id</th>
       <th>Name</th>
       <th>Age</th>
       <th>Salary</th>
       <th>Dept #</th>
+      <th>Action</th>
     </tr>    
-    <tr *ngFor="let emp of empList">
+    <tr *ngFor="let emp of empList;let i=index;" (click)="setSelectedEmp(emp)" [class.selected]="selectedEmployee == emp">
       <td>{{emp.id}}</td>
       <td>{{emp.name}}</td>
       <td>{{emp.age}}</td>
       <td>{{emp.salary}}</td>
       <td>{{emp.deptId}}</td>
+      <td><button class="btn btn-info" (click)="delete(i)">Delete</button></td>
     </tr>
 </table>
+
+{{selectedEmployee.name}}

@@ -7,6 +7,8 @@ import { Employee } from './employee.model';
 })
 export class EmployeeListComponent implements OnInit {
 
+  selectedEmployee: Employee = new Employee();
+
   // Create Object Array in javascript syntax
   // empList = [
   //   {
@@ -83,5 +85,12 @@ export class EmployeeListComponent implements OnInit {
     tempEmployee.salary = salary;
     tempEmployee.deptId = deptId;
     this.empList.push(tempEmployee);
+  }
+  delete(idIndex:number){
+    this.empList.splice(idIndex,1);
+  }
+
+  setSelectedEmp(emp){
+    this.selectedEmployee = emp;
   }
 }
