@@ -1,2 +1,25 @@
 <h1>{{title}}</h1>
-<app-book-list></app-book-list>
+<!-- <app-book-list></app-book-list> -->
+
+<input type=text #per class="form-control">
+<button class="btn btn-info" (click)="calculateGrade(per.value)">Find Grade</button>
+<p>
+    Your Grade is : {{grade}}
+</p>
+<div *ngIf="age >= 18">
+    You are Eligible for Votting.
+</div>
+<div *ngIf="age < 18">
+    You are Not Eligible for Votting.
+</div>
+
+<div *ngIf="age >= 18;then ifBlock;else elseBlock"></div>
+
+<ng-template #ifBlock>
+    <div>
+        You are Eligible for Votting.
+    </div>
+</ng-template>
+<ng-template #elseBlock>
+    You are Not Eligible for Votting.
+</ng-template>

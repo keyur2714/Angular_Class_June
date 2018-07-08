@@ -8,6 +8,7 @@ import { Book } from './book.model';
 export class BookListComponent implements OnInit {
 
   selectedBook: Book = new Book();
+  idxForEdit = 0;
 
   bookList: Book[] = [
     {
@@ -50,5 +51,25 @@ export class BookListComponent implements OnInit {
 
   setSelectedBook(book: Book){
     this.selectedBook = book;
+  }
+
+  edit(bookId:number,idx:number){
+    this.idxForEdit = idx;
+    this.selectedBook = this.bookList.find((book)=>book.bookId == bookId);    
+  }
+
+  update(bookId:number,bookName: string,price:number){
+    console.log(bookId);
+    this.selectedBook = this.bookList.find(
+      (b)=>b.bookId == bookId
+    );    
+    this.selectedBook.bookName = bookName;
+    this.selectedBook.price = price;
+    //this.bookList[this.idxForEdit] = this.selectedBook;    
+  }
+
+  delete(idx:number):void {
+    console.log(idx);
+    this.bookList.splice(idx,1);
   }
 }

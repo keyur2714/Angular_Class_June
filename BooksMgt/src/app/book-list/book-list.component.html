@@ -1,19 +1,47 @@
+<div class="container">
+
+  <div class="row">
+    <div class="col"><label>Book Name: </label></div>
+    <div class="col"><input type=text name=bookName value="{{selectedBook.bookName}}" #bookName /></div>    
+  </div>
+  <div class="row">
+    <div class="col"><label>Price: </label></div>
+    <div class="col"><input type=text name=price value="{{selectedBook.price}}" #price /></div>    
+  </div>
+  <div class="row">
+    <div class="col">
+      <button class="btn btn-info" (click)="update(selectedBook.bookId,bookName.value,price.value)">Update</button>
+    </div>    
+  </div>
+
+
 <button class="btn btn-info" (click)="sayHello()">Say Hello</button>
+
+
+
 <table class="table table-stripped">
   <tr>
     <th>Book #</th>
     <th>Book Name</th>
     <th>Author</th>
     <th>Price</th>
+    <th>Action</th>
   </tr>
   <tr *ngFor="let book of bookList;let i=index" (click)="setSelectedBook(book)">
     <td>{{book.bookId}}</td>
     <td>{{book.bookName}}</td>
     <td>{{book.author}}</td>
     <td>{{book.price}}</td>    
+    <td>
+      <button class="btn btn-success" (click)="edit(book.bookId,i)">Edit</button>
+      <button class="btn btn-success" (click)="delete(i)">Delete</button>
+    </td>    
   </tr>
 </table>
-{{selectedBook.bookId}}
-{{selectedBook.bookName}}
-{{selectedBook.author}}
-{{selectedBook.price}}
+<p>
+     {{selectedBook.bookId}}
+     {{selectedBook.bookName}}
+     {{selectedBook.author}}
+     {{selectedBook.price}}
+</p>
+</div>
