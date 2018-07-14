@@ -1,0 +1,13 @@
+<table class="table table-stripped">
+  <tr>
+    <th *ngFor="let columnHeader of columnHeaderList">
+      {{columnHeader}}
+    </th>
+  </tr>
+  <tr *ngFor="let data of dataList">
+    <td *ngFor="let column of columnNameList">
+      {{data[column]}}
+    </td>    
+  </tr>
+</table>
+<app-message [message]="completeMsg"></app-message>
