@@ -1,0 +1,26 @@
+<h1>{{title}}</h1>
+<app-message
+    [msg]="msg"
+    (geFormattedMessage)="setFormattedMessage($event)"
+>
+</app-message>
+Formatted Message is:  {{formateedMsg}}
+<hr/>
+<app-calc (getResult)="setResult($event)">
+</app-calc>
+
+Result is: {{result}}
+
+<input type=text [(ngModel)]=name name=name />
+
+{{name}}
+
+<app-country 
+    (getSelectedCountry)="getCounty($event)"
+>
+</app-country>
+
+<hr/>
+<pre>
+Selected Country: {{country | json}}
+</pre>
