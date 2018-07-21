@@ -1,0 +1,12 @@
+<h1>{{title}}</h1>
+
+<input type=text name=str #str />
+<hr/>
+<button (click)="reverseStrWithElementRef()">Reverse String</button>
+<button (click)="checkPalindrom()">Check Palindrom</button>
+<hr/>
+<p #output>
+{{resultString | uppercase}}
+</p>
+<hr/>
+<app-string-util></app-string-util>
