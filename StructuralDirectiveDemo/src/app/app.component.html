@@ -1,0 +1,53 @@
+<h1>{{title}}</h1>
+
+<select [(ngModel)]="loopCounter">
+  <option ngValue="5">5</option>
+  <option ngValue="10">10</option>
+  <option ngValue="20">20</option>
+</select>
+
+<div *appMyForLoop="loopCounter">  
+  <!-- <span *appMyIf="loopCounter != 5"> -->
+    Hello Radhe Krishna...!
+  <!-- </span>   -->
+</div>
+
+<div *appMyIf="age >= 18">
+  You are Eligible for voting...!
+</div>
+<div *appMyIf="age < 18">
+  Sorry You are Not Eligible for voting...!
+</div>
+
+<ng-template [appMyIf]="age >= 18">
+  You are Eligible for voting...!
+</ng-template>
+
+
+<ng-template [ngIf]="age >= 18">
+  You are Eligible for voting...!
+</ng-template>
+
+<hr/>
+<div *ngIf="age >= 18;then ifBlock;else elseBlock">  
+</div>
+
+<ng-template #ifBlock>  
+    You are Eligible..!
+</ng-template>
+
+<ng-template #elseBlock>
+    You are Not Eligible..!
+</ng-template>
+
+<hr/>
+<input type="text" name="per" #per/>
+<button (click)="calculateGrade(per.value)">Calculate Grade</button>
+
+<div [ngSwitch]="grade">
+  <span *ngSwitchCase="'Dist'">Distinction</span>
+  <span *ngSwitchCase="'First'">First Class</span>
+  <span *ngSwitchCase="'Second'">Second Class</span>
+  <span *ngSwitchCase="'Pass'">Third Class</span>
+  <span *ngSwitchCase="'Fail'">Fail</span>  
+</div>

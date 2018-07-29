@@ -1,0 +1,15 @@
+<h1>
+  {{title}}
+</h1>
+<p [appMyColor]="'red'">
+  Hello Radhe Krishna....!
+</p>
+<div [appMyColor]>
+  Good Morning
+</div>
+
+<select (change)="changeColor()" [(ngModel)]="color">
+  <option ngValue="green">Green</option>
+  <option ngValue="pink">Pink</option>
+  <option ngValue="blue">Blue</option>    
+</select>
