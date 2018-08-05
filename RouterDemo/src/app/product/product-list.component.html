@@ -1,0 +1,22 @@
+{{title}}
+<ul>
+  <li *ngFor="let x of p">
+    {{x}}    
+  </li>
+</ul>
+<table>
+  <tr>
+    <th>Product Id</th>
+    <th>Code</th>
+    <th>Description</th>
+    <th>Price</th>
+  </tr>
+  <tr *ngFor="let product of productList">
+    <td>      
+      {{product.productId}}
+    </td> 
+    <td>{{product.code}}</td>
+    <td>{{product.description}}</td>
+    <td>{{product.price}}</td>
+  </tr> 
+</table>
