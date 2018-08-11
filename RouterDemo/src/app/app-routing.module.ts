@@ -16,7 +16,12 @@ const routes: Routes = [
          }
         ]        
       },
-      {path:'contactus',component:ContactusComponent}
+      {path:'contactus',component:ContactusComponent},
+      {
+          path:'',
+          redirectTo: 'home',
+          pathMatch: 'full'
+      }      
 ];
 @NgModule({
     imports: [        

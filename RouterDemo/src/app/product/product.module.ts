@@ -15,4 +15,7 @@ import { ProductRoutingModule } from './product-routing.module';
     providers: []
 })
 export class ProductModule{
+    constructor(){
+        console.log("Product Moduule Loaded...");
+    }
 }

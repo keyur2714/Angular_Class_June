@@ -29,7 +29,9 @@ export class ProductListComponent implements OnInit {
     }
   ];
 
-  constructor() { }
+  constructor() { 
+    console.log("Product List Component Object is created..");
+  }
 
   ngOnInit() {
   }

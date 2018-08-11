@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Router Demo';
+  constructor(){
+    console.log("Appcomponent Object is Created...");
+  }
 }

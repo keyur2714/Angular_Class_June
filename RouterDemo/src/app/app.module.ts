@@ -7,8 +7,11 @@ import { HomeComponent } from './home/home.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { AbcComponent } from './aboutus/abc/abc.component';
+import { PageNotFoundComponent } from './pagenotfound.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ProductModule } from './product/product.module';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +19,10 @@ import { ProductModule } from './product/product.module';
     HomeComponent,
     AboutusComponent,
     ContactusComponent,
-    AbcComponent
+    AbcComponent,
+    PageNotFoundComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
