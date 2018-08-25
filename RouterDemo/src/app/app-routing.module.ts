@@ -7,7 +7,7 @@ import { AbcComponent } from './aboutus/abc/abc.component';
 
 const routes: Routes = [
     {path:'home',component:HomeComponent},            
-      {path:'aboutus',component:AboutusComponent},
+      {path:'aboutus',component:AboutusComponent,canActivate: [true]},
       {
         path:'aboutus',
         children:[
