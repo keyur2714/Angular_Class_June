@@ -2,21 +2,21 @@
   <form #f="ngForm" (ngSubmit)="save(f)">
     <div class="row">
       <div class="col-md-4"><label>Name: </label></div>
-      <div class="col-md-4"><input type=text class="form-control" name="name" ngModel required #name="ngModel" /></div>
+      <div class="col-md-4"><input type=text class="form-control" name="name" [(ngModel)]="inquiry.name" required #name="ngModel" /></div>
       <div class="col-md-4" *ngIf="name.touched && name.invalid">
         Please Enter Name
       </div>
     </div>
     <div class="row">
       <div class="col-md-4"><label>Mobile No: </label></div>
-      <div class="col-md-4"><input type=text class="form-control" name="mobileNo" ngModel required #mobileNo="ngModel" /></div>
+      <div class="col-md-4"><input type=text class="form-control" name="mobileNo" [(ngModel)]="inquiry.mobileNo" required #mobileNo="ngModel" /></div>
       <div class="col-md-4" *ngIf="mobileNo.touched && mobileNo.invalid">
         Please Enter Mobile Number
       </div>
     </div>
     <div class="row">
       <div class="col-md-4"><label>Email: </label></div>
-      <div class="col-md-4"><input type=text class="form-control" name="email" ngModel required email #email="ngModel" /></div>
+      <div class="col-md-4"><input type=text class="form-control" name="email" [(ngModel)]="inquiry.email" required email #email="ngModel" /></div>
       <div class="col-md-4" *ngIf="email.errors && email.touched">
         <span *ngIf="email.errors.required">Please Enter Email</span>
         <span *ngIf="email.errors.email">Please Enter Valid Email</span>
@@ -25,7 +25,7 @@
     <div class="row">
       <div class="col-md-4"><label>Course: </label></div>
       <div class="col-md-4">
-        <select name="course" ngModel required class="form-control">
+        <select name="course" [(ngModel)]="inquiry.course" required class="form-control">
           <option value="-1">-:Select Course:-</option>
           <option value="JAVA">Advance Java</option>
           <option value="ANGULAR">Angular 4/5/6</option>
@@ -36,16 +36,15 @@
     <div class="row">      
       <div class="col"><label>Gender: </label></div>
       <div class="col-md-3">        
-        Male <input type=radio class="form-control" name="gender" value="M" ngModel required/>
-        Female <input type=radio class="form-control" name="gender" value="F" ngModel required/>
+        Male <input type=radio class="form-control" name="gender" value="M" [(ngModel)]="inquiry.gender" required/>
+        Female <input type=radio class="form-control" name="gender" value="F" [(ngModel)]="inquiry.gender" required/>
       </div>
     </div>
-
     <div class="row">      
-      <div class="col"><label>Test: </label></div>
-      <div class="col-md-3" *ngFor="let l of list;let i=index">        
-        <input type="checkbox" name="test[{{i}}]" value="{{l}}" ngModel/>
-      </div>
+      <div class="col"><label>Call Availibility: </label></div>
+      <div class="col-md-3" *ngFor="let avalibity of avalibityList;let i=index">        
+         <input type="checkbox" name="avalibity" [(ngModel)]="inquiry.availibity[i]"/> {{avalibity}}
+      </div>        
     </div>
     <div class="row">
       <div class="col-md-6">
@@ -54,4 +53,7 @@
       </div>      
     </div>
   </form>
+</div>
+<div *ngIf="f.valid && isSubmitted">
+  {{inquiry | json}}
 </div>
