@@ -1,0 +1,55 @@
+<div *ngIf="userForm.invalid && userForm.touched">
+      Form is Invalid Please Field Required Fields.
+</div>
+<form [formGroup]="userForm" (ngSubmit)="save()">
+  <table>
+    <tr>
+      <td>Name: </td>
+      <td><input type=text formControlName="name" />
+        <div *ngIf="userForm.get('name').errors">
+        <span *ngIf="userForm.get('name').errors['required'] && userForm.get('name').invalid && userForm.get('name').touched">
+          name can't be Empty.
+        </span>        
+        <span *ngIf="userForm.get('name').errors['minlength'] && userForm.get('name').invalid && userForm.get('name').touched">
+          name must be > 3 char
+        </span>        
+        </div>
+      </td>      
+    </tr>
+    <tr>
+      <td>City: </td>
+      <td>
+        <input type=text formControlName="city" />
+        <span *ngIf="userForm.get('city').invalid && userForm.get('city').touched">City is Required Field</span>
+      </td>
+    </tr>
+    <tr>
+      <td>Mobile No: </td>
+      <td><input type=text formControlName="mobileNo" /></td>
+    </tr>
+    <tr>
+      <td>Status: </td>
+      <td>
+        <input type=checkbox formControlName="isActive" /> Active        
+      </td>
+    </tr>
+    <tr>
+      <td>Hobbies: <button (click)="addHobby()">Add More</button></td>
+      <td formArrayName="hobbies">
+        <span *ngFor="let control of userForm.get('hobbies').controls;let i=index">
+          <input type=text [formControlName]="i" /> <br />                  
+        </span>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <button type="submit">Save</button>&nbsp; 
+        <button type="button" (click)="setDefault()">Set Default</button>
+      </td>
+      <td><button type="button" (click)="resetForm()">Reset</button></td>
+    </tr>
+  </table>
+</form>
+<pre *ngIf="isSubmitted">
+{{user | json}}
+</pre>
