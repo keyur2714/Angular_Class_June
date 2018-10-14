@@ -5,15 +5,15 @@
       "name": "Sweta",
       "course": "Angular",
       "fees": 12000,
-      "mobileNo": "7387012111",
+      "mobileNo": "7387012177",
       "email": "sweta@gmail.com"
     },
     {
       "id": 2,
       "name": "Sanjeet",
-      "course": "Angular",
+      "course": "Java",
       "fees": 12000,
-      "mobileNo": "7387012122",
+      "mobileNo": "7387012133",
       "email": "sanjeet@gmail.com"
     },
     {
@@ -21,7 +21,7 @@
       "name": "Bikash",
       "course": "Angular",
       "fees": 12000,
-      "mobileNo": "7387012333",
+      "mobileNo": "7387012399",
       "email": "bikash@gmail.com"
     },
     {
@@ -38,17 +38,6 @@
       "course": "Java",
       "email": "dave.ashvini@gmail.com",
       "id": 5
-    },
-    {
-      "name": "keyur",
-      "course": "BigData",
-      "email": "keyur.555kn@gmail.com",
-      "mobileNo": "7387029671",
-      "id": 6
     }
-  ],
-  "course": []
-	
-	
   ]
 }

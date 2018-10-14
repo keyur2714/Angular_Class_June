@@ -22,10 +22,9 @@ export class InquiryComponent implements OnInit {
 
   getAllInquiries(){
     this.inquiryService.getInquiries().subscribe(
-      (data: Response)=>{
+      (data: Inquiry[])=>{
         console.log(data)
-        console.log(data.json())
-        this.inquiries = data.json();        
+        this.inquiries = data;        
       },
       (error)=>{
         console.log(error);
@@ -36,8 +35,8 @@ export class InquiryComponent implements OnInit {
   getNewId(){
     let maxId = 0;
     this.inquiryService.getInquiries().subscribe(
-      (data: Response)=>{
-        this.inquiries = data.json();                
+      (data)=>{
+        this.inquiries = data;                
         for(let i of this.inquiries){
           if(maxId < i.id){
             maxId = i.id;
@@ -54,20 +53,44 @@ export class InquiryComponent implements OnInit {
 
   save(){
     if(this.inquiry.id != null && this.inquiry.id > 0){
-
+      this.inquiryService.updateInquirie(this.inquiry).subscribe(
+        (data:Inquiry)=>{          
+          this.statusCode = 200;
+          console.log(data+" ===");
+          this.getAllInquiries();
+        },
+        (error)=>{
+          this.statusCode = error;
+        }
+      )
     }else{
       this.getNewId();
       this.inquiryService.saveInquirie(this.inquiry).subscribe(
-        (data)=>{
+        (data:number)=>{
           console.log(data);
-          console.log(data.status);
-          this.statusCode = data.status;
+          this.statusCode = data;
           this.getAllInquiries();
         },
-        (errpr)=>{
-
+        (error)=>{
+          this.statusCode = error;
         }
       )
     }
+  }
+
+  edit(inquiry:Inquiry):void{
+    this.inquiry = inquiry;
+  }
+  delete(idx:number):void{
+    if(confirm("Are You sure you want to delete?")){
+      this.inquiryService.deleteInquiry(idx).subscribe(
+        (status:number)=>{          
+          this.statusCode = 204;
+          console.log(this.statusCode);
+          this.getAllInquiries();
+        }
+        
+      )
+    }    
   }
 }

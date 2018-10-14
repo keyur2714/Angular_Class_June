@@ -1,16 +1,22 @@
 <div class="alert alert-success" *ngIf="statusCode === 201">
   <strong>Inquiry!</strong> saved successfully.
 </div>
+<div class="alert alert-info" *ngIf="statusCode === 200">
+  <strong>Inquiry!</strong> updated successfully.
+</div>
+<div class="alert alert-info" *ngIf="statusCode === 204">
+  <strong>Inquiry!</strong> Deleted successfully.
+</div>
 <form #f="ngForm" (ngSubmit)="save()">
-  <div class="row">
+  <div class="row form-group">
     <div class="col-md-2">
       <label>Name: </label>
     </div>
     <div class="col-md-4">
-      <input type=text class="form-control" name=name [(ngModel)]="inquiry.name" />
+      <input type=text class="form-control" name=name [(ngModel)]="inquiry.name" required/>
     </div>
   </div>
-  <div class="row">
+  <div class="row form-group">
     <div class="col-md-2">
       <label>Course: </label>
     </div>
@@ -18,7 +24,7 @@
       <input type=text class="form-control" name=course [(ngModel)]="inquiry.course" />
     </div>
   </div>
-  <div class="row">
+  <div class="row form-group">
     <div class="col-md-2">
       <label>Email: </label>
     </div>
@@ -27,7 +33,7 @@
     </div>
   </div>
 
-  <div class="row">
+  <div class="row form-group">
     <div class="col-md-2">
       <label>Mobile No: </label>
     </div>
@@ -35,25 +41,38 @@
       <input type=text class="form-control" name=mobileNo [(ngModel)]="inquiry.mobileNo" />
     </div>
   </div>
-  <div class="row">
+  <div class="row form-group">
     <div class="col-md-4">
-      <button type=submit class="btn btn-primary">Save</button>
+      <button type=submit class="btn btn-primary" [disabled]="f.invalid">Save</button>
     </div>    
   </div>
 </form>
-<table class="table table-striped">
-  <tr>
-    <th>Id</th>
-    <th>Name</th>
-    <th>Course</th>
-    <th>Email</th>
-    <th>Mobile No</th>
-  </tr>
-  <tr *ngFor="let inquiry of inquiries">
-    <td>{{inquiry.id}}</td>
-    <td>{{inquiry.name}}</td>
-    <td>{{inquiry.course}}</td>
-    <td>{{inquiry.email}}</td>
-    <td>{{inquiry.mobileNo}}</td>
-  </tr>
-</table>
+<div class="row">
+  <div class="col-md-6">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Course</th>
+        <th>Email</th>
+        <th>Mobile No</th>
+        <th>Action</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let inquiry of inquiries">
+        <td>{{inquiry.id}}</td>
+        <td>{{inquiry.name}}</td>
+        <td>{{inquiry.course}}</td>
+        <td>{{inquiry.email}}</td>
+        <td>{{inquiry.mobileNo}}</td>
+        <td>
+          <button class="btn btn-primary" (click)="edit(inquiry)">Edit</button> 
+          <button class="btn btn-danger" (click)="delete(inquiry.id)">Delete</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
