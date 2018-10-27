@@ -32,19 +32,22 @@ ContentChild--
 
 -- local storage/session storage 
 -- Observable from RXJS
-	-- operators (map/switch map/catch)
+	-- operators (map/catch)
 	-- of	
+	-- switch map/PIPE -- REMAINING
 -- HttpModule	
 -- Routing Module & Routing with 
 Lazy Loading ::
 preloading
--- module communications
+
 -- Auntication & Authorization 
 	-- Http Interceptor 
 	-- JWT  
 	-- Routing with guards - 
 ------------Start small project----
-Pipes Inbuilt & custome pipe 
+-- module communications -- REMAINING
+-- switch map/PIPE -- REMAINING
+-- Pipes Inbuilt & custome pipe ---
 Unit Testing :: -- karma/jasmine/e2e
 Animations 
 Deployments-- how to deploy on server	

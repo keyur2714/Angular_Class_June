@@ -1,0 +1,13 @@
+<h1>{{title}}</h1>
+{{name | uppercase}}
+<br />
+{{name | lowercase}}
+<br />
+{{name | uppercase | lowercase}}
+<br />
+{{ today | date : 'MM-dd-yyyy hh:mm:ss a'}}
+<br />
+<pre>
+{{emp | json}}
+</pre>
+{{title | welcome : ' ' : '*' | formateStr}}
