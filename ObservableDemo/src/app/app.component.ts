@@ -14,12 +14,12 @@ export class AppComponent implements OnInit{
   title = 'Observable Demo';
 
   ngOnInit(){
-  this.numbersObservable.subscribe(
-      (number)=>{
-        console.log(number);
-        this.generatedNo = number;
-      }
-    )
+  // this.numbersObservable.subscribe(
+  //     (number)=>{
+  //       console.log(number);
+  //       this.generatedNo = number;
+  //     }
+  //   )
   }
 
 }
